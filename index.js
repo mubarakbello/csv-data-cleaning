@@ -28,7 +28,7 @@ const createOutput = (output_array = [[]]) => {
 
 csv.fromPath(input_path, {headers: true})
   .on('data', row => {
-    data_list.push(row);
+    data_list.push(Object.values(row));
   })
   .on('end', () => {
     console.log('Done reading file');
