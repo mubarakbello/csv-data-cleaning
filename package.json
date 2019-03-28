@@ -11,8 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-parser": "^2.2.0",
-    "fast-csv": "^2.4.1",
-    "fs": "0.0.1-security"
+    "fast-csv": "^2.4.1"
   }
 }
