@@ -6,10 +6,10 @@ data_list = [];
 input_path = 'input_data.csv'; // put the file_path here
 output_path = 'output_csv.csv';
 
-start_index = 10001; // change this
-end_index = 20000;
+start_index = 15001; // change this [to 1 to indicate the beginning of the data]
+end_index = 20000; // change this [to -1 to indicate the end of the data]
 
-const cleanData = (data = []) => {
+const implementLogic = (data = []) => {
   output_csv_array = [];
   // implement your logic here
   // and write the cleaned data to the output_csv_array
@@ -28,11 +28,11 @@ const createOutput = (output_array = [[]]) => {
 
 csv.fromPath(input_path, {headers: true})
   .on('data', row => {
-    data_list.push([row['device_manufacturer'], row['device_model']]);
+    data_list.push(row);
   })
   .on('end', () => {
     console.log('Done reading file');
 
-    // now, call function to clean data
-    cleanData(data_list.slice(start_index-1, end_index));
+    // now, call function to work on data
+    implementLogic(data_list.slice(start_index-1, end_index));
   });
